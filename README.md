@@ -51,40 +51,27 @@ ai-resume-builder/
 
 This project leverages **`uv`**, an ultra-fast Python package installer and resolver. Because the verified `uv.lock` file is included in this repository, you do not need to manually install or manage individual dependencies. `uv` will sync your environment to the exact project specifications automatically.
 
-### Step 1: Clone the Workspace
-Clone the repository and navigate to your project root directory:
-```bash
+### Step 1: Clone the Repository
 git clone <your-github-repo-url>
+
+Step 2: Navigate to root folder
 cd ai-resume-builder
-Step 2: Configure Environment Variables
+
+Step 3: Configure Environment Variables
 Create a .env file in the root of your directory to secure your Gemini API Key:
-
-Code snippet
-
-
 GEMINI_API_KEY=your_actual_gemini_api_key_here
+
 Step 3: Install and Sync Dependencies
-Simply run the sync command. uv will read the committed uv.lock file and construct your virtual environment with the precise version matches instantly:
-
-Bash
-
-
 uv sync
-(Note: If you haven't installed the custom extras on your machine yet, you can alternatively run uv run main.py directly, and uv will handle the environment lock sync automatically in the background).
 
 Step 4: Add Input Specifications
-Ensure your target parameters are configured prior to running the pipeline:
 
 Place your raw academic info, projects, and tech stack into inputs/student_profile.txt
 
 Place the full job specification text inside inputs/job_description.txt
 
 Step 5: Execute the Engine
-Run the multi-agent pipeline:
+uv run app.py
 
-Bash
-
-
-uv run main.py
 Upon successful execution, the compiled files will be generated instantly in your outputs/ directory.
 
