@@ -1,26 +1,24 @@
-[ inputs/student_profile.txt ]       [ inputs/job_description.txt ]
-                         │                                     │
-                         └─────────────────┬───────────────────┘
-                                           ▼
-                         ┌───────────────────────────────────┐
-                         │         ResumeBuilderCrew         │
-                         └─────────────────┬─────────────────┘
-                                           │
-         ┌─────────────────────────────────┼─────────────────────────────────┐
-         ▼                                 ▼                                 ▼
-┌─────────────────────────────────┐ ┌─────────────────────────────────┐ ┌─────────────────────────────────┐
-│     Expert Resume Strategist    │ │     ATS Optimization Expert     │ │    Professional Career Coach    │
-│         (Profiler Agent)        │ │           (ATS Agent)           │ │          (Coach Agent)        │
-└────────────────┬────────────────┘ └────────────────┬────────────────┘ └────────────────┬────────────────┘
-                 │                                   │                                   │
-                 ▼                                   ▼                                   ▼
-┌─────────────────────────────────┐ ┌─────────────────────────────────┐ ┌─────────────────────────────────┐
-│     Profile & Align Task        │ │       ATS Evaluation Task       │ │     Gap Improvement Task        │
-│    (Tailors skills & projects)  │ │   (Scans keywords & match %)    │ │   (Creates 4-week roadmap)      │
-└────────────────┬────────────────┘ └────────────────┬────────────────┘ └────────────────┬────────────────┘
-                 │                                   │                                   │
-                 ▼                                   ▼                                   ▼
-       [ outputs/resume.md ]              [ outputs/ats_report.md ]         [ outputs/improvement_plan.md ]
+📥 INPUT DATA
+ │
+ ├── 📄 inputs/student_profile.txt (Raw Skills, Projects, Experience)
+ └── 📄 inputs/job_description.txt (Target Job Role & Requirements)
+        │
+        ▼
+🤖 ORCHESTRATION LAYER
+ │
+ └── 🧩 crew.py (ResumeBuilderCrew)
+        │
+        ├── 🔹 [Agent 1] Expert Resume Strategist (agents.py)
+        │      └── 📋 Task: Profile & Align (tasks.py)
+        │             └─► 💾 Writes to: outputs/resume.md
+        │
+        ├── 🔹 [Agent 2] ATS Optimization Expert (agents.py)
+        │      └── 📋 Task: ATS Evaluation (tasks.py)
+        │             └─► 💾 Writes to: outputs/ats_report.md
+        │
+        └── 🔹 [Agent 3] Professional Career Coach (agents.py)
+               └── 📋 Task: Gap Improvement (tasks.py)
+                      └─► 💾 Writes to: outputs/improvement_plan.md
 
 
 
