@@ -1,33 +1,23 @@
-```markdown
-```mermaid
-graph TD
-    %% Inputs
-    In1[inputs/student_profile.txt] --> Join
-    In2[inputs/job_description.txt] --> Join
-
-    %% Orchestrator
-    Join{ } --> Crew[ResumeBuilderCrew]
-
-    %% Agents
-    Crew --> Agent1[Expert Resume Strategist]
-    Crew --> Agent2[ATS Optimization Expert]
-    Crew --> Agent3[Professional Career Coach]
-
-    %% Tasks
-    Agent1 --> Task1[Profile & Align Task]
-    Agent2 --> Task2[ATS Evaluation Task]
-    Agent3 --> Task3[Gap Improvement Task]
-
-    %% Outputs
-    Task1 --> Out1[outputs/resume.md]
-    Task2 --> Out2[outputs/ats_report.md]
-    Task3 --> Out3[outputs/improvement_plan.md]
-
-    %% Styling
-    style Crew fill:#f9f,stroke:#333,stroke-width:2px
-    style Out1 fill:#bbf,stroke:#333
-    style Out2 fill:#bbf,stroke:#333
-    style Out3 fill:#bbf,stroke:#333
+```text
+📥 INPUTS
+ └── 📄 inputs/student_profile.txt (Raw Student Data)
+ └── 📄 inputs/job_description.txt (Target Job Role)
+        │
+        ▼
+🤖 ORCHESTRATION PIPELINE
+ └── 🧩 crew.py (ResumeBuilderCrew)
+        │
+        ├── 🔹 [Agent 1] Expert Resume Strategist
+        │      └── 📋 Task: Profile & Align
+        │             └─► 💾 Result: outputs/resume.md
+        │
+        ├── 🔹 [Agent 2] ATS Optimization Expert
+        │      └── 📋 Task: ATS Evaluation
+        │             └─► 💾 Result: outputs/ats_report.md
+        │
+        └── 🔹 [Agent 3] Professional Career Coach
+               └── 📋 Task: Gap Improvement
+                      └─► 💾 Result: outputs/improvement_plan.md
 
 
 
